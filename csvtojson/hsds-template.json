@@ -1,0 +1,71 @@
+[{"source":="$source",
+	"cluster_id"="",
+	"confidence"=""
+"entity":=[
+  {
+    "organization_id": "$organization_id",
+    "organization_name": "$organization_name",
+    "$alternate_name": "$alternate_name",
+    "description": "$description",
+    "email": "$email",
+    "url": "$url",
+    "tax_status": "$tax_status",
+    "tax_id": "$tax_id",
+    "year_incorporated": "$year_incorporated",
+    "legal_status": "$legal_status",
+    "contacts": [
+      {
+        "name": "$name",
+        "title": "$title",
+        "department": "$department",
+        "email": "$email"
+      }]",
+	"locations": [
+      {
+        "id": "$id",
+        "organization_id": "$organization_id",
+        "name": "$name",
+        "alternate_name": "$alternate_name",
+        "description": "$description",
+        "latitude": "$latitude",
+        "longitude": "$longitude"
+      }],
+	   "services": [
+      {
+        "services_id": "$services_id",
+        "organization_id": "$organization_id",
+        "program_id": "$program_id",
+        "location_id": "$location_id",
+        "name": "$name",
+        "alternate_name": "$alternate_name",
+        "description": "$description",
+        "url": "$url",
+        "email": "$email",
+        "status": "$status",
+        "interpretation_services": "$interpretation_services",
+        "application_process": "$application_process",
+        "wait_time": "$wait_time",
+        "fees": "$fees",
+        "accreditations": "$accreditations",
+        "licenses": "$licenses"
+		"phones": [
+		  {
+			"id": "$id",
+			"location_id": "$location_id",
+			"service_id": "$service_id",
+			"organization_id": "$organization_id",
+			"contact_id": "$contact_id",
+			"service_at_location_id": "$service_at_location_id",
+			"number": "$number",
+			"extension": "$extension",
+			"type": "$type",
+			"department": "$department",
+			"language": "$language",
+			"description": "$description"
+		  }
+		]
+      }
+	 ]
+	 
+	}
+	]
