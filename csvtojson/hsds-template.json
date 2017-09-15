@@ -1,71 +1,70 @@
-[{"source":="$source",
-	"cluster_id"="",
-	"confidence"=""
-"entity":=[
+ {"source":"$source",
+	"cluster_id":"",
+	"confidence":"",
+"entity":[
   {
     "organization_id": "$organization_id",
     "organization_name": "$organization_name",
-    "$alternate_name": "$alternate_name",
-    "description": "$description",
-    "email": "$email",
-    "url": "$url",
-    "tax_status": "$tax_status",
-    "tax_id": "$tax_id",
-    "year_incorporated": "$year_incorporated",
-    "legal_status": "$legal_status",
+    "organization_alternate_name": "$organization_alternate_name",
+    "description": "$organization_description",
+    "email": "$organization_email",
+    "url": "$organization_url",
+    "tax_status": "$organization_tax_status",
+    "tax_id": "$organization_tax_id",
+    "year_incorporated": "$organization_year_incorporated",
+    "legal_status": "$organization_legal_status",
     "contacts": [
       {
-        "name": "$name",
-        "title": "$title",
-        "department": "$department",
-        "email": "$email"
-      }]",
+        "name": "",
+        "title": "",
+        "department": "",
+        "email": ""
+      }],
 	"locations": [
       {
         "id": "$id",
         "organization_id": "$organization_id",
-        "name": "$name",
-        "alternate_name": "$alternate_name",
-        "description": "$description",
-        "latitude": "$latitude",
-        "longitude": "$longitude"
+        "name": "$organization_name",
+        "alternate_name": "$organization_alternate_name",
+        "description": "$organization_description",
+        "latitude": "$organization_latitude",
+        "longitude": "$organization_longitude"
       }],
 	   "services": [
       {
-        "services_id": "$services_id",
+        "services_id": "$service_id",
         "organization_id": "$organization_id",
         "program_id": "$program_id",
-        "location_id": "$location_id",
-        "name": "$name",
-        "alternate_name": "$alternate_name",
-        "description": "$description",
-        "url": "$url",
-        "email": "$email",
-        "status": "$status",
-        "interpretation_services": "$interpretation_services",
-        "application_process": "$application_process",
-        "wait_time": "$wait_time",
-        "fees": "$fees",
-        "accreditations": "$accreditations",
-        "licenses": "$licenses"
+        "location_id": "Location_$id",
+        "name": "$service_name",
+        "alternate_name": "$service_alternate_name",
+        "description": "$service_description",
+        "url": "$service_url",
+        "email": "$service_email",
+        "status": "$service_status",
+        "interpretation_services": "$service_interpretation_services",
+        "application_process": "$service_application_process",
+        "wait_time": "$service_wait_time",
+        "fees": "$service_fees",
+        "accreditations": "$service_accreditations",
+        "licenses": "$service_licenses",
 		"phones": [
 		  {
 			"id": "$id",
-			"location_id": "$location_id",
+			"location_id": "",
 			"service_id": "$service_id",
 			"organization_id": "$organization_id",
-			"contact_id": "$contact_id",
-			"service_at_location_id": "$service_at_location_id",
-			"number": "$number",
-			"extension": "$extension",
-			"type": "$type",
-			"department": "$department",
-			"language": "$language",
-			"description": "$description"
+			"contact_id": "",
+			"service_at_location_id": "",
+			"number": "$service_phone",
+			"extension": "",
+			"type": "$service_type",
+			"department": "",
+			"language": "EN_US",
+			"description": "$service_description"
 		  }
 		]
       }
 	 ]
 	 
 	}
-	]
