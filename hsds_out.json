@@ -1,0 +1,76 @@
+{"conflicts" : [ {
+ 	"source": "IRMA",
+ 	"cluster_id": "3",
+ 	"confidence": "0.953066",
+ 	"entity": [{
+ 		"organization_id": "230",
+ 		"organization_name": "Sumter County Fairgrounds",
+ 		"organization_alternate_name": "",
+ 		"description": "",
+ 		"email": "",
+ 		"url": "",
+ 		"tax_status": "",
+ 		"tax_id": "",
+ 		"year_incorporated": "",
+ 		"legal_status": "",
+ 		"contacts": [{
+ 			"name": "",
+ 			"title": "",
+ 			"department": "",
+ 			"email": ""
+ 		}],
+ 		"locations": [{
+ 			"id": "location_6",
+ 			"organization_id": "230",
+ 			"name": "Sumter County Fairgrounds",
+ 			"alternate_name": "",
+ 			"description": "",
+ 			"latitude": "28.643801",
+ 			"longitude": "-82.05667",
+ 			"physical_address": [{
+ 				"id": "230",
+ 				"address_1": "",
+ 				"address_2": "",
+ 				"address_3": "",
+ 				"address_4": "",
+ 				"city": "",
+ 				"region": null,
+ 				"state_province": "",
+ 				"postal_code": "",
+ 				"country": ""
+ 			}]
+ 		}],
+ 		"services": [{
+ 			"services_id": "",
+ 			"organization_id": "230",
+ 			"program_id": "",
+ 			"location_id": "Location_6",
+ 			"name": "shelters",
+ 			"alternate_name": "",
+ 			"description": "",
+ 			"url": "",
+ 			"email": "",
+ 			"status": "",
+ 			"interpretation_services": "",
+ 			"application_process": "",
+ 			"wait_time": "",
+ 			"fees": "",
+ 			"accreditations": "",
+ 			"licenses": "",
+ 			"phones": [{
+ 				"id": "6",
+ 				"location_id": "",
+ 				"service_id": "",
+ 				"organization_id": "230",
+ 				"contact_id": "",
+ 				"service_at_location_id": "",
+ 				"number": "",
+ 				"extension": "",
+ 				"type": "",
+ 				"department": "",
+ 				"language": "EN_US",
+ 				"description": ""
+ 			}]
+ 		}]
+ 	}]
+ }
