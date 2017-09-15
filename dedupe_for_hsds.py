@@ -53,7 +53,6 @@ logging.getLogger().setLevel(log_level)
 # ## Setup
 input_file = opts.input_file
 output_file = opts.output_file
-confilct_output_file='confilct_output_file';
 settings_file = 'csv_example_learned_settings'
 training_file = 'csv_example_training.json'
 
@@ -69,6 +68,7 @@ def preProcess(column):
     column = unidecode(column)
     column = re.sub('  +', ' ', column)
     column = re.sub('\n', ' ', column)
+
     column = column.strip().strip('"').strip("'").lower().strip()
     # If data is missing, indicate that by setting the value to `None`
     if not column:
@@ -86,7 +86,7 @@ def readData(filename):
         reader = csv.DictReader(f)
         for row in reader:
             clean_row = [(k, preProcess(v)) for (k, v) in row.items()]
-            row_id = int(row['id'])
+            row_id = int(row['Id'])
             data_d[row_id] = dict(clean_row)
 
     return data_d
@@ -107,6 +107,9 @@ else:
         {'field' : 'organization_name', 'type': 'String'},
         {'field' : 'organization_zip', 'type': 'Exact', 'has missing' : True},
         {'field' : 'organization_phone', 'type': 'String', 'has missing' : True},
+        {'field' : 'service_name', 'type': 'String'},
+        {'field' : 'service_latitude', 'type': 'Exact'},
+        {'field' : 'service_longitude', 'type': 'Exact'},
         ]
 
     # Create a new deduper object and pass our data model to it.
@@ -185,8 +188,7 @@ for (cluster_id, cluster) in enumerate(clustered_dupes):
                 "confidence": score
             }
 
-
-with open(output_file, 'w') as f_output, open(input_file) as f_input:
+with open(output_file, 'wb') as f_output, open(input_file) as f_input:
     writer = csv.writer(f_output)
     reader = csv.reader(f_input)
 
@@ -194,8 +196,6 @@ with open(output_file, 'w') as f_output, open(input_file) as f_input:
     heading_row.insert(0, 'confidence')
     heading_row.insert(0, 'cluster_id')
     canonical_keys = canonical_rep.keys()
-    for key in canonical_keys:
-        heading_row.append('canonical_' + key)
 
     writer.writerow(heading_row)
 
@@ -206,8 +206,4 @@ with open(output_file, 'w') as f_output, open(input_file) as f_input:
             canonical_rep = cluster_membership[row_id]["canonical representation"]
             row.insert(0, cluster_membership[row_id]['confidence'])
             row.insert(0, cluster_id)
-            for key in canonical_keys:
-                row.append(canonical_rep[key].encode('utf8'))
             writer.writerow(row)
-
-
