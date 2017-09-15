@@ -24,7 +24,7 @@ public class SwaggerConfig {
     }
     private ApiInfo metaData() {
         ApiInfo apiInfo = new ApiInfo(
-                "OpenReferral Dataguard Gateway API",
+                "OpenReferral Steward Gateway API",
                 "APIs for Openreferral Repository Management",
                 "1.0",
                 "Terms of service",

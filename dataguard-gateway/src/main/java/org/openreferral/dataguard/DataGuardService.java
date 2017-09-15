@@ -20,8 +20,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import org.springframework.beans.factory.annotation.Autowired;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.swagger.annotations.Api;
@@ -29,10 +29,12 @@ import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping(value="/dataguard/api")
-@Api(value="dataguard", description="Operations pertaining to Data Guard Gateway")
+@Api(value="dataguard", description="Operations pertaining to Data Steward Gateway")
 public class DataGuardService {
 	
-	
+	@Autowired
+	private EmailService emailService;
+
 	
     //@Value("${conflictdir}")
 	private String conflictDirectory;
@@ -261,6 +263,7 @@ public class DataGuardService {
 											String email = (String) hsdsMap.get("email");
 										       if (null !=email){
 										    	   //email send
+										    	   emailService.sendMail(email,"Open Referral","Watchdog mail");
 										    	   hsdsMap.put("lastContacted-Org" + new Date(), email );
 												   updatedJsonList.add(hsdsMap);
 										       }
@@ -294,6 +297,7 @@ public class DataGuardService {
 
 	
 	
+	@SuppressWarnings("unchecked")
 	@ApiOperation(value = "Notify to Contacts all the sources part of conflicts list", response = String.class)
 	@RequestMapping(value = "/notifyContactsByEmail/{id}", method = RequestMethod.POST)
     public String notifyContactsByEmail(@PathVariable String id){
@@ -321,6 +325,7 @@ public class DataGuardService {
 											
 											       if (null !=email){
 											    	   //email send
+											    	   emailService.sendMail(email,"Open Referral","Watchdog mail");
 											    	   contactEmailList.add(email);											    	 
 											       }
 											});
