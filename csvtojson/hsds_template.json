@@ -1,71 +1,76 @@
-[{"source":="$source",
-	"cluster_id"="",
-	"confidence"="",
-"entity":=[
-  {
-    "organization_id": "$organization_id",
-    "organization_name": "$organization_name",
-    "organization_alternate_name": "$organization_alternate_name",
-    "description": "$organization_description",
-    "email": "$organization_email",
-    "url": "$organization_url",
-    "tax_status": "$organization_tax_status",
-    "tax_id": "$organization_tax_id",
-    "year_incorporated": "$organization_year_incorporated",
-    "legal_status": "$organization_legal_status",
-    "contacts": [
-      {
-        "name": "",
-        "title": "",
-        "department": "",
-        "email": ""
-      }],
-	"locations": [
-      {
-        "id": "$id",
-        "organization_id": "$organization_id",
-        "name": "$organization_name",
-        "alternate_name": "$organization_alternate_name",
-        "description": "$organization_description",
-        "latitude": "$organization_latitude",
-        "longitude": "$organization_longitude"
-      }],
-	   "services": [
-      {
-        "services_id": "$service_id",
-        "organization_id": "$organization_id",
-        "program_id": "$program_id",
-        "location_id": "Location_$id",
-        "name": "$service_name",
-        "alternate_name": "$service_alternate_name",
-        "description": "$service_description",
-        "url": "$service_url",
-        "email": "$service_email",
-        "status": "$service_status",
-        "interpretation_services": "$service_interpretation_services",
-        "application_process": "$service_application_process",
-        "wait_time": "$service_wait_time",
-        "fees": "$service_fees",
-        "accreditations": "$service_accreditations",
-        "licenses": "$service_licenses",
-		"phones": [
-		  {
-			"id": "$id",
-			"location_id": "",
-			"service_id": "$service_id",
-			"organization_id": "$organization_id",
-			"contact_id": "",
-			"service_at_location_id": "",
-			"number": "$service_phone",
-			"extension": "",
-			"type": "$service_type",
-			"department": "",
-			"language": "EN_US",
-			"description": "$service_description"
-		  }
-		]
-      }
-	 ]
-	 
-	}
-	]
+ {
+ 	"source": "$source",
+ 	"cluster_id": "$cluster_id",
+ 	"confidence": "$confidence",
+ 	"entity": [{
+ 		"organization_id": "$organization_id",
+ 		"organization_name": "$organization_name",
+ 		"organization_alternate_name": "$organization_alternate_name",
+ 		"description": "$organization_description",
+ 		"email": "$organization_email",
+ 		"url": "$organization_url",
+ 		"tax_status": "$organization_tax_status",
+ 		"tax_id": "$organization_tax_id",
+ 		"year_incorporated": "$organization_year_incorporated",
+ 		"legal_status": "$organization_legal_status",
+ 		"contacts": [{
+ 			"name": "",
+ 			"title": "",
+ 			"department": "",
+ 			"email": ""
+ 		}],
+ 		"locations": [{
+ 			"id": "location_$id",
+ 			"organization_id": "$organization_id",
+ 			"name": "$organization_name",
+ 			"alternate_name": "$organization_alternate_name",
+ 			"description": "$organization_description",
+ 			"latitude": "$service_latitude",
+ 			"longitude": "$service_longitude",
+ 			"physical_address": [{
+ 				"id": "$organization_id",
+ 				"address_1": "$service_street",
+ 				"address_2": "",
+ 				"address_3": "",
+ 				"address_4": "",
+ 				"city": "$service_city",
+ 				"region": null,
+ 				"state_province": "$service_state",
+ 				"postal_code": "$service_zip",
+ 				"country": "$service_county"
+ 			}]
+ 		}],
+ 		"services": [{
+ 			"services_id": "$service_id",
+ 			"organization_id": "$organization_id",
+ 			"program_id": "$program_id",
+ 			"location_id": "Location_$id",
+ 			"name": "$service_name",
+ 			"alternate_name": "$service_alternate_name",
+ 			"description": "$service_description",
+ 			"url": "$service_url",
+ 			"email": "$service_email",
+ 			"status": "$service_status",
+ 			"interpretation_services": "$service_interpretation_services",
+ 			"application_process": "$service_application_process",
+ 			"wait_time": "$service_wait_time",
+ 			"fees": "$service_fees",
+ 			"accreditations": "$service_accreditations",
+ 			"licenses": "$service_licenses",
+ 			"phones": [{
+ 				"id": "$id",
+ 				"location_id": "",
+ 				"service_id": "$service_id",
+ 				"organization_id": "$organization_id",
+ 				"contact_id": "",
+ 				"service_at_location_id": "",
+ 				"number": "$organization_phone",
+ 				"extension": "",
+ 				"type": "$service_type",
+ 				"department": "",
+ 				"language": "EN_US",
+ 				"description": "$service_description"
+ 			}]
+ 		}]
+ 	}]
+ }
