@@ -1,6 +1,6 @@
  {"source":"$source",
-	"cluster_id":"",
-	"confidence":"",
+	"cluster_id":"$cluster_id",
+	"confidence":"$confidence",
 "entity":[
   {
     "organization_id": "$organization_id",
