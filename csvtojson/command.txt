@@ -1,1 +1,1 @@
-python csvtojson.py test.csv t.json template.json
+python hsda_csvtojson.py combined_IRMA_FEMA_hsds.out hsds_out.json hsds_template.json
