@@ -1,0 +1,63 @@
+<div>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <div id="logo">
+                    <span class="site-title">
+					<a class="navbar-brand" href="https://openreferral.org/" title="Open Referral" rel="home">Open Referral- Data Guard </a>
+				</span>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+</div>
+
+
+
+
+<md-sidenav-container class="example-container">
+    <md-sidenav #sidenav class="example-sidenav" mode="side" opened="true" disableClose="true" isFocusTrapEnabled="false">
+        <div *ngFor="let i of conflicts">
+            <li style="padding-bottom: 10px">
+                <a (click)="navigate(i)" style="cursor:pointer"> {{i}} </a>
+            </li>
+        </div>
+    </md-sidenav>
+
+    <div class="example-sidenav-content" style="display:flex;flex-flow:row wrap; width:100%" *ngFor="let keyValue of keyValues">
+        <!--div class="example-scrolling-content">
+            <div *ngFor="let item of keyValue.value" style="width:600px;margin:10px;">
+                <recursive-node [node]=item></recursive-node>
+            </div>
+        </div-->
+
+        <md-card class="example-card" *ngFor="let item of keyValue.value" style="width:600px;margin:10px">
+            <md-card-header>
+                <md-card-title>{{item.key}}</md-card-title>
+
+            </md-card-header>
+
+            <md-card-content>
+                <p>
+                    <recursive-node [node]=item></recursive-node>
+                </p>
+            </md-card-content>
+            <md-card-actions>
+                <button md-button><md-icon>ic_thumb_up</md-icon></button>
+                <button md-button><md-icon>ic_thumb_down</md-icon></button>
+                <button md-button><md-icon>ic_file_download</md-icon></button>
+                <button md-button><md-icon>ic_email</md-icon></button>
+                <button md-button><md-icon>ic_phone</md-icon></button>
+                <button md-button><md-icon>ic_check</md-icon></button>
+
+            </md-card-actions>
+        </md-card>
+
+
+    </div>
+
+
+
+
+</md-sidenav-container>

@@ -1,0 +1,27 @@
+<md-accordion class="example-headers-align">
+    <md-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle="true">
+        <md-expansion-panel-header>
+
+            <md-panel-title>
+                {{node.key }}
+            </md-panel-title>
+            <md-panel-description>
+
+            </md-panel-description>
+
+        </md-expansion-panel-header>
+        <div *ngFor="let item of node.value">
+            <md-form-field *ngIf="!isArray(item.value)">
+                <input mdInput placeholder="{{item.key }}" value="{{item.value }}">
+            </md-form-field>
+            <recursive-node [node]="item" *ngIf="isArray(item.value)"></recursive-node>
+        </div>
+
+        <div>
+
+
+        </div>
+
+    </md-expansion-panel>
+
+</md-accordion>
