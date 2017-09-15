@@ -70,6 +70,6 @@ Sample JSON:
 - [Location](https://gist.github.com/kinlane/7551310cf5ece445ee50ccce0b5a0f7a)
 - [Service](https://gist.github.com/kinlane/e75ee0bc957c101bb415e1155fe63f29)
 
-
+OpenAPI + JSON Schema - https://github.com/openreferral/api-specification/blob/master/_data/api-commons/openapi-hsda.yaml
 
 Use Github Issues for Questions!
