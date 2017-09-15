@@ -53,6 +53,7 @@ logging.getLogger().setLevel(log_level)
 # ## Setup
 input_file = opts.input_file
 output_file = opts.output_file
+confilct_output_file='confilct_output_file';
 settings_file = 'csv_example_learned_settings'
 training_file = 'csv_example_training.json'
 
@@ -85,7 +86,7 @@ def readData(filename):
         reader = csv.DictReader(f)
         for row in reader:
             clean_row = [(k, preProcess(v)) for (k, v) in row.items()]
-            row_id = int(row['Id'])
+            row_id = int(row['id'])
             data_d[row_id] = dict(clean_row)
 
     return data_d
@@ -177,21 +178,21 @@ for (cluster_id, cluster) in enumerate(clustered_dupes):
     cluster_d = [data_d[c] for c in id_set]
     canonical_rep = dedupe.canonicalize(cluster_d)
     for record_id, score in zip(id_set, scores):
-        cluster_membership[record_id] = {
-            "cluster id" : cluster_id,
-            "canonical representation" : canonical_rep,
-            "confidence": score
-        }
+        if len(id_set) > 1:
+            cluster_membership[record_id] = {
+                "cluster id" : cluster_id,
+                "canonical representation" : canonical_rep,
+                "confidence": score
+            }
 
-singleton_id = cluster_id + 1
 
 with open(output_file, 'w') as f_output, open(input_file) as f_input:
     writer = csv.writer(f_output)
     reader = csv.reader(f_input)
 
     heading_row = next(reader)
-    heading_row.insert(0, 'confidence_score')
-    heading_row.insert(0, 'Cluster ID')
+    heading_row.insert(0, 'confidence')
+    heading_row.insert(0, 'cluster_id')
     canonical_keys = canonical_rep.keys()
     for key in canonical_keys:
         heading_row.append('canonical_' + key)
@@ -207,10 +208,6 @@ with open(output_file, 'w') as f_output, open(input_file) as f_input:
             row.insert(0, cluster_id)
             for key in canonical_keys:
                 row.append(canonical_rep[key].encode('utf8'))
-        else:
-            row.insert(0, None)
-            row.insert(0, singleton_id)
-            singleton_id += 1
-            for key in canonical_keys:
-                row.append(None)
-        writer.writerow(row)
+            writer.writerow(row)
+
+
