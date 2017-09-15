@@ -22,13 +22,27 @@
       }],
 	"locations": [
       {
-        "id": "$id",
+        "id": "location_$id",
         "organization_id": "$organization_id",
         "name": "$organization_name",
         "alternate_name": "$organization_alternate_name",
         "description": "$organization_description",
         "latitude": "$organization_latitude",
-        "longitude": "$organization_longitude"
+        "longitude": "$organization_longitude",
+		"physical_address": [
+		  {
+			"id": "$organization_id",
+			"address_1": "$service_street",
+			"address_2": "",
+			"address_3": "",
+			"address_4": "",
+			"city": "$service_city",
+			"region": null,
+			"state_province": "$service_state",
+			"postal_code": "$service_zip",
+			"country": "$service_county"
+		  }
+		],
       }],
 	   "services": [
       {
@@ -67,4 +81,4 @@
       }
 	 ]
 	 
-	}
+}
